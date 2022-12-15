@@ -1,18 +1,12 @@
-import { ChangeEvent } from "react";
+import CityForm from "./component/cityForm";
+import { WeatherData } from "./interface/WeatherData";
 
-export default async function Home() {
-  const fetchedData = getData("Paris");
-  return (
-    <main>
-      <h1>See the latest weather</h1>
-      <div></div>
-      <form onSubmit={handleclick}>
-        <input type="text" id="city" placeholder="enter your city" />
-        <button type="button">Submit</button>
-      </form>
-    </main>
-  );
-}
+type param = {
+  params: {
+    city: string;
+  };
+};
+
 const getData = async (city: string) => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${city}&aqi=yes`;
   const options = {
@@ -21,13 +15,8 @@ const getData = async (city: string) => {
       "Content-Type": "application/json",
     },
   };
-  const res = await fetch(url, options);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const data = await res.json();
-  const dataArray = Object.keys(data);
-  console.log(dataArray);
+  const res = await fetch(url, options).then((res) => res.json());
+  return res.json() as WeatherData;
 };
 
 const handleclick = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,3 +24,18 @@ const handleclick = (e: React.FormEvent<HTMLFormElement>) => {
   const town = new FormData(e.target as HTMLFormElement);
   console.log(town);
 };
+
+const Home = async ({ params: { city } }: param) => {
+  const data = getData(city);
+
+  const [weatherData] = await Promise.all([data]);
+
+  return (
+    <main>
+      <h1>See the latest weather</h1>
+      <div>{weatherData.location.name}</div>
+      <CityForm />
+    </main>
+  );
+};
+export default Home;
