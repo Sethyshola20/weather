@@ -1,13 +1,11 @@
 import CityForm from "./component/cityForm";
 import { WeatherData } from "./interface/WeatherData";
-import { Suspense } from "react";
-import Loading from "./loading";
 import WeatherCity from "./WeatherCity";
 
 const towns = ["Montpellier", "Paris", "Lyon", "Marseille"];
 
 const getData = async (town: string): Promise<WeatherData> => {
-  const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&${town}&aqi=no`;
+  const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${town}&aqi=no`;
   const options = {
     method: "GET",
     headers: {
@@ -15,27 +13,30 @@ const getData = async (town: string): Promise<WeatherData> => {
     },
   };
   try {
-    const res = await fetch(url, options);
-    const data = res.json();
-    return data;
+    const res = await fetch(url, options).then((res) => res.json());
+    return res;
   } catch {
     throw new Error("There is something wrong");
   }
 };
-const createWeatherCity = async (town: string) => {
-  const data = await getData(town);
-  return {
-    location: data.location,
-    current: data.current,
-  };
-};
-const citiesData = towns.map(async (item) => await createWeatherCity(item));
 
-const Home = () => {
+const Home = async () => {
+  const createData = async (town: string) => {
+    const data = await getData(town);
+    return data;
+  };
+  const citiesData: WeatherData[] = await Promise.all(
+    towns.map((item) => createData(item))
+  );
+  console.log(citiesData);
   return (
     <main>
       {citiesData.map((item) => (
-        <WeatherCity city={item} />
+        <WeatherCity
+          key={item.location.name}
+          location={item.location}
+          current={item.current}
+        />
       ))}
     </main>
   );

@@ -2,6 +2,8 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+  },
+  experiments: {
     topLevelAwait: true,
   },
   images: {
