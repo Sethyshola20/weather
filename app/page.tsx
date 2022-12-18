@@ -28,16 +28,19 @@ const Home = async () => {
   const citiesData: WeatherData[] = await Promise.all(
     towns.map((item) => createData(item))
   );
-  console.log(citiesData);
   return (
     <main>
-      {citiesData.map((item) => (
-        <WeatherCity
-          key={item.location.name}
-          location={item.location}
-          current={item.current}
-        />
-      ))}
+      <ul className="flex">
+        {citiesData.map((item) => (
+          <li>
+            <WeatherCity
+              key={item.location.name}
+              location={item.location}
+              current={item.current}
+            />
+          </li>
+        ))}
+      </ul>
     </main>
   );
 };

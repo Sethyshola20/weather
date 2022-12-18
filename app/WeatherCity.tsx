@@ -10,7 +10,12 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
   return (
     <>
       <Suspense fallback={<Loading />}>
-        <section>{props.location ? props.location.name : "hello"}</section>
+        <section>
+          <header>
+            <h2>{props.location.name}</h2>
+            <h3>{props.current.temp_c}°C</h3>
+          </header>
+        </section>
       </Suspense>
     </>
   );
