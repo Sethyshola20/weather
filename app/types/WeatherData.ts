@@ -1,4 +1,4 @@
-export interface WeatherData {
+export type WeatherData = {
     location: {
         name: string;
         region: string;

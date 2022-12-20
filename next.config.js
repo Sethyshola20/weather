@@ -9,7 +9,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
+        protocol: "https://",
         hostname: "cdn.weatherapi.com",
         port: "3000",
         pathname: "/account123/**",

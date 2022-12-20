@@ -1,6 +1,7 @@
 import CityForm from "./component/cityForm";
 import { WeatherData } from "./interface/WeatherData";
 import WeatherCity from "./WeatherCity";
+import "../styles/styles.css";
 
 const towns = ["Montpellier", "Paris", "Lyon", "Marseille"];
 
@@ -30,9 +31,9 @@ const Home = async () => {
   );
   return (
     <main>
-      <ul className="flex">
+      <ul className="city-list">
         {citiesData.map((item) => (
-          <li>
+          <li className="city">
             <WeatherCity
               key={item.location.name}
               location={item.location}
@@ -40,6 +41,7 @@ const Home = async () => {
             />
           </li>
         ))}
+        <footer className="list-foot"></footer>
       </ul>
     </main>
   );
