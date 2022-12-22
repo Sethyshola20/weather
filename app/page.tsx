@@ -1,12 +1,12 @@
 import CityForm from "./component/cityForm";
-import { WeatherData } from "./interface/WeatherData";
+import { WeatherData } from "./types/WeatherData";
 import WeatherCity from "./WeatherCity";
 import "../styles/styles.css";
-
-const towns = ["Montpellier", "Paris", "Lyon", "Marseille"];
+import { towns } from "./townsArray";
+import SearchBar from "./component/SearchBar";
 
 const getData = async (town: string): Promise<WeatherData> => {
-  const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEY}&q=${town}&aqi=no`;
+  const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
   const options = {
     method: "GET",
     headers: {
@@ -31,6 +31,9 @@ const Home = async () => {
   );
   return (
     <main>
+      <div className="search">
+        <SearchBar />
+      </div>
       <ul className="city-list">
         {citiesData.map((item) => (
           <li className="city">

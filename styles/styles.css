@@ -74,3 +74,20 @@ h3{
     padding: 2px;
     min-height: 100px;
   }
+  /*data styles*/
+
+  .data{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: .5em;
+  }
+  .data span{
+    opacity: .7;
+    font-size: 15px;
+  }
+  .data p{
+    font-size: 21px;
+    margin-top: 10px;
+  }
