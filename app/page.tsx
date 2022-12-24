@@ -1,9 +1,9 @@
-import CityForm from "./component/cityForm";
 import { WeatherData } from "./types/WeatherData";
 import WeatherCity from "./WeatherCity";
 import "../styles/styles.css";
 import { towns } from "./townsArray";
 import SearchBar from "./component/SearchBar";
+import { Suspense } from "react";
 
 const getData = async (town: string): Promise<WeatherData> => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
@@ -37,11 +37,13 @@ const Home = async () => {
       <ul className="city-list">
         {citiesData.map((item) => (
           <li className="city">
-            <WeatherCity
-              key={item.location.name}
-              location={item.location}
-              current={item.current}
-            />
+            <Suspense fallback={<span>There was an error</span>}>
+              <WeatherCity
+                key={item.location.name}
+                location={item.location}
+                current={item.current}
+              />
+            </Suspense>
           </li>
         ))}
         <footer className="list-foot"></footer>
