@@ -24,7 +24,7 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
           <div className="data-wrapper">
             <div className="data 1">
               <span>Vent</span>
-              <p>{props.current.wind_mph} mph</p>{" "}
+              <p>{props.current.wind_mph} mph</p>
             </div>
             <div className="data 2">
               <span>Humidité</span>
