@@ -1,4 +1,5 @@
 import Head from "./head";
+import CityContextProvider from "../context/CityContextProvider";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head></Head>
-      <body>{children}</body>
+      <body>
+        <CityContextProvider>{children}</CityContextProvider>
+      </body>
     </html>
   );
 }

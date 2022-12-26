@@ -1,9 +1,8 @@
 "use client";
 
 import React from "react";
-import { towns } from "../townsArray";
 
-const AddButton = () => {
+const AddButton = (towns: string[]) => {
   const addCityToTownsArray = (
     e: React.MouseEvent<HTMLButtonElement>,
     towns: Array<string>
