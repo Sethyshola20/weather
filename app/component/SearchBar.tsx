@@ -1,16 +1,18 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useContext } from "react";
 import useSWR from "swr";
 import { useState } from "react";
 import { Citysearch } from "../types/Citysearch";
 import AddButton from "./addButton";
+import { CityContext } from "../../context/CityContext";
 import searchicon from "../../assets/searchicon.png";
 import Image from "next/image";
 
-const SearchBar = ({ towns }: { towns: string[] }) => {
+const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
   const [hasBeenCalled, setHasBeenCalled] = useState(false);
+  const { towns } = useContext(CityContext);
 
   const fetcher = async (key: string) => {
     const url = `https://api.api-ninjas.com/v1/city?name=${key}`;
@@ -81,7 +83,7 @@ const SearchBar = ({ towns }: { towns: string[] }) => {
               data.map((item: Citysearch) => (
                 <li className="town-list-item" key={item.population}>
                   {item.name}
-                  {towns.includes(item.name) ? "" : <AddButton towns={towns} />}
+                  {towns.includes(item.name) ? "" : <AddButton />}
                 </li>
               ))}
           </ul>
