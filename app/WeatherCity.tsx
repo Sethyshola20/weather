@@ -23,11 +23,11 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
           <p>{props.current.condition.text}</p>
           <div className="data-wrapper">
             <div className="data 1">
-              <span>Vent</span>
+              <span>Wind</span>
               <p>{props.current.wind_mph} mph</p>
             </div>
             <div className="data 2">
-              <span>Humidité</span>
+              <span>Humidity</span>
               <p>{props.current.humidity}%</p>
             </div>
             <div className="data 3">
@@ -35,7 +35,7 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
               <p>{props.current.uv}</p>
             </div>
             <div className="data 4">
-              <span>Visibilité</span>
+              <span>Visibility</span>
               <p>{props.current.vis_km} km</p>
             </div>
             <div className="data 5">{props.current.precip_mm} </div>

@@ -1,1 +1,0 @@
-export const towns = ["Montpellier", "Paris", "Lyon", "Marseille"];
