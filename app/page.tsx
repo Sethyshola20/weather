@@ -4,6 +4,7 @@ import "../styles/styles.css";
 import SearchBar from "./component/SearchBar";
 import { Suspense, useContext } from "react";
 import { CityContext } from "../context/CityContext";
+import Loading from "./loading";
 
 const getData = async (town: string): Promise<WeatherData> => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
@@ -38,7 +39,7 @@ const Home = async () => {
       <ul className="city-list">
         {citiesData.map((item) => (
           <li className="city">
-            <Suspense fallback={<span>There was an error</span>}>
+            <Suspense fallback={<Loading />}>
               <WeatherCity
                 key={item.location.name}
                 location={item.location}

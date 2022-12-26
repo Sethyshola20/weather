@@ -8,6 +8,7 @@ import AddButton from "./addButton";
 import { CityContext } from "../../context/CityContext";
 import searchicon from "../../assets/searchicon.png";
 import Image from "next/image";
+import Loading from "../loading";
 
 const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -76,14 +77,14 @@ const SearchBar = () => {
         </div>
       </header>
 
-      <Suspense fallback="could not load">
+      <Suspense fallback={<Loading />}>
         <div id="town-list-container">
           <ul className="town-list">
             {data &&
               data.map((item: Citysearch) => (
                 <li className="town-list-item" key={item.population}>
                   {item.name}
-                  {towns.includes(item.name) ? "" : <AddButton />}
+                  {!towns.includes(item.name) ? <AddButton /> : ""}
                 </li>
               ))}
           </ul>

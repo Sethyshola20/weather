@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useContext } from "react";
 
 const getCityArrayFromApi = async (): Promise<Array<string>> => {
