@@ -37,7 +37,6 @@ const getCityArrayFromApi = async (): Promise<Array<string>> => {
 
 const Home = async () => {
   const towns = await getCityArrayFromApi();
-  console.log(towns);
   const createData = async (town: string) => {
     const data = await getData(town);
     return data;
