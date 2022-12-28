@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useContext } from "react";
-import { CityContext } from "../../context/CityContext";
+import { useCityContext } from "../../context/CityContextProvider";
 
 const AddButton = () => {
-  const { towns } = useContext(CityContext);
+  const { towns } = useCityContext();
   const addCityToTownsArray = (
     e: React.MouseEvent<HTMLButtonElement>,
     towns: Array<string>

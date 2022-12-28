@@ -3,7 +3,7 @@ import WeatherCity from "./WeatherCity";
 import "../styles/styles.css";
 import SearchBar from "./component/SearchBar";
 import { Suspense, useContext } from "react";
-import { CityContext } from "../context/CityContext";
+import { useCityContext } from "../context/CityContextProvider";
 import Loading from "./loading";
 
 const getData = async (town: string): Promise<WeatherData> => {
@@ -23,11 +23,12 @@ const getData = async (town: string): Promise<WeatherData> => {
 };
 
 const Home = async () => {
-  const { towns } = useContext(CityContext);
+  const { towns } = useCityContext();
   const createData = async (town: string) => {
     const data = await getData(town);
     return data;
   };
+
   const citiesData: WeatherData[] = await Promise.all(
     towns.map((item) => createData(item))
   );
