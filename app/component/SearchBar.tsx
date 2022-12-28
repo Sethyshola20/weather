@@ -9,7 +9,7 @@ import searchicon from "../../assets/searchicon.png";
 import Image from "next/image";
 import Loading from "../loading";
 
-const SearchBar = () => {
+const SearchBar = ({ towns }: { towns: string[] }) => {
   const [searchInput, setSearchInput] = useState("");
   const [hasBeenCalled, setHasBeenCalled] = useState(false);
 
@@ -61,15 +61,17 @@ const SearchBar = () => {
             </svg>
             <input
               id="search"
+              type="search"
               className="searchbar"
-              type="text"
               placeholder="Recherche"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               onClick={() => displayListOfCities()}
             />
             {hasBeenCalled ? (
-              <button onClick={() => removeListOfCities()}>Cancel</button>
+              <button type="reset" onClick={() => removeListOfCities()}>
+                Cancel
+              </button>
             ) : (
               ""
             )}
@@ -84,6 +86,14 @@ const SearchBar = () => {
               data.map((item: Citysearch) => (
                 <li className="town-list-item" key={item.population}>
                   {item.name}
+                  {towns.includes(item.name) ? (
+                    ""
+                  ) : (
+                    <AddButton
+                      towns={towns}
+                      setHasBeenCalled={setHasBeenCalled}
+                    />
+                  )}
                 </li>
               ))}
           </ul>

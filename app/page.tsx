@@ -21,7 +21,7 @@ const getData = async (town: string): Promise<WeatherData> => {
   }
 };
 const fetchMyApiForTownArray = async (): Promise<string[]> => {
-  const url = "/api/towns";
+  const url = "http://localhost:3000/api/towns";
   const options = {
     method: "GET",
     headers: {
@@ -50,7 +50,7 @@ const Home = async () => {
     <main>
       <div className="search">
         <Suspense fallback={<Loading />}>
-          <SearchBar />
+          <SearchBar towns={towns} />
         </Suspense>
       </div>
       <ul className="city-list">

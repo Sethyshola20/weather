@@ -105,6 +105,8 @@ h3{
   .town-list-item{
     color: #f5f5f7;
     z-index: 2;
+    display: flex;
+    align-items: flex-end;
   }
   #recherche{
     position: sticky;
@@ -127,6 +129,16 @@ h3{
     border-style: unset;
     color: white;
   }
+  .searchbar::-webkit-search-cancel-button{
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background-color: #f5f5f7;
+    border-radius: 900px;
+    content: 'x';
+    color: #111111;
+    cursor: pointer;
+  }
   .searchbar:focus{
     outline:none;
     color: white;
@@ -142,4 +154,17 @@ h3{
   }
   .recherche{
     background-color: #111111;
+  }
+  .add-to-citylist{
+    font-size: 18px;
+    margin-left: 5px;
+    color: #f5f5f7;
+    background-color: unset;
+    border-color: unset;
+    border: none;
+    cursor: pointer;
+  }
+  .add-to-citylist:hover{
+    color: white;
+    
   }
