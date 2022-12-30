@@ -30,7 +30,6 @@ const fetchMyApiForTownArray = async (): Promise<string[]> => {
   };
   try {
     const res = await fetch(url, options).then((res) => res.json());
-    console.log(res);
     return res;
   } catch {
     throw new Error("There is something wrong");

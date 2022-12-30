@@ -96,6 +96,7 @@ const SearchBar = ({ towns }: { towns: string[] }) => {
                     <AddButton
                       towns={towns}
                       setHasBeenCalled={setHasBeenCalled}
+                      searchInput={searchInput}
                     />
                   )}
                 </li>
