@@ -47,11 +47,11 @@ const Home = async () => {
   );
   return (
     <main>
-      <div className="search">
+      {/*<div className="search">
         <Suspense fallback={<Loading />}>
           <SearchBar towns={towns} />
         </Suspense>
-      </div>
+      </div>*/}
       <ul className="city-list">
         {citiesData.map((item) => (
           <li className="city">

@@ -21,9 +21,11 @@ main{
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  min-height: 91.5vh;
+  min-height: 100vh;
 }
-
+.city-list::-webkit-scrollbar {
+  display: none;
+}
 .city{
   display: flex;
   flex-direction: column;
@@ -177,4 +179,17 @@ h3{
     background-color: unset;
     color: #5D5D5D;
     border-style: unset;
+  }
+
+  @media screen and (min-width: 500px) {
+    .city{
+      padding: 0 10em;
+    }
+    .data-wrapper{
+      grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    }
+    .data{
+      padding: 1em;
+    }
   }

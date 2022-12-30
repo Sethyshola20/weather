@@ -18,7 +18,7 @@ const AddButton = ({
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(searchInput),
+      body: JSON.stringify({ searchInput }),
     };
 
     const res = await fetch(url, options);
