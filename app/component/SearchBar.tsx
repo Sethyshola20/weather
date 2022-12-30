@@ -69,7 +69,11 @@ const SearchBar = ({ towns }: { towns: string[] }) => {
               onClick={() => displayListOfCities()}
             />
             {hasBeenCalled ? (
-              <button type="reset" onClick={() => removeListOfCities()}>
+              <button
+                className="cancel"
+                type="reset"
+                onClick={() => removeListOfCities()}
+              >
                 Cancel
               </button>
             ) : (

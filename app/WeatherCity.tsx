@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 
 const WeatherCity: React.FC<WeatherData> = (props) => {
+  const inKmh = Math.round(props.current.wind_mph * 1.60934);
   return (
     <>
       <Suspense fallback={<Loading />}>
@@ -24,7 +25,7 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
           <div className="data-wrapper">
             <div className="data 1">
               <span>Wind</span>
-              <p>{props.current.wind_mph} mph</p>
+              <p>{inKmh} km/h</p>
             </div>
             <div className="data 2">
               <span>Humidity</span>
@@ -38,7 +39,10 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
               <span>Visibility</span>
               <p>{props.current.vis_km} km</p>
             </div>
-            <div className="data 5">{props.current.precip_mm} </div>
+            <div className="data 5">
+              <span>Précipitation</span>
+              <p>{props.current.precip_mm} mm</p>
+            </div>
           </div>
         </section>
       </Suspense>

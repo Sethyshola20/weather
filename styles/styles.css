@@ -21,7 +21,7 @@ main{
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  min-height: 100vh;
+  min-height: 91.5vh;
 }
 
 .city{
@@ -29,6 +29,7 @@ main{
   flex-direction: column;
   color: #ffffff;
   text-align: center;
+  max-height: 100vh;
   min-width: 100%;
   scroll-snap-align: center;
 }
@@ -44,16 +45,15 @@ h3{
   font-size: 21px;
 }
 .data-wrapper{
-  border: 1px solid white;
   border-radius: 5px;
   margin: 7px;
 }
 .data-wrapper {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 7px;
+  grid-row-gap: 7px;
   margin-top: 40px;
   }
   
@@ -64,15 +64,19 @@ h3{
   .data5 { grid-area: 3 / 1 / 4 / 2; }
   .data6 { grid-area: 3 / 2 / 4 / 3; }
   .data7 { grid-area: 4 / 1 / 5 / 2; }
+
   .data{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    border: 1px solid white;
+    border-radius: 10px;
     padding: 2px;
     min-height: 100px;
+    background: rgba(0, 0, 0, 0.21);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.2px);
+    -webkit-backdrop-filter: blur(5.2px);
   }
   /*data styles*/
 
@@ -107,13 +111,15 @@ h3{
     z-index: 2;
     display: flex;
     align-items: flex-end;
+    justify-content: space-between;
+    padding-right: .75em;
   }
   #recherche{
     position: sticky;
     display: flex;
     top: 0;
     justify-content: flex-start;
-    padding: .25em .5em;
+    padding: .5em .5em;
   }
 
   .search-wrapper, .searchbar{
@@ -156,8 +162,8 @@ h3{
     background-color: #111111;
   }
   .add-to-citylist{
-    font-size: 18px;
     margin-left: 5px;
+    font-size: 16px;
     color: #f5f5f7;
     background-color: unset;
     border-color: unset;
@@ -165,6 +171,10 @@ h3{
     cursor: pointer;
   }
   .add-to-citylist:hover{
-    color: white;
-    
+    color: white; 
+  }
+  .cancel{
+    background-color: unset;
+    color: #5D5D5D;
+    border-style: unset;
   }

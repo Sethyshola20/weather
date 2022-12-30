@@ -24,7 +24,7 @@ const AddButton = ({ towns, setHasBeenCalled }: any) => {
       className="add-to-citylist"
       onClick={(e) => addCityToTownsArray(e, towns)}
     >
-      +
+      Add
     </button>
   );
 };
