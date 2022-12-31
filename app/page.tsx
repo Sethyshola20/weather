@@ -20,8 +20,8 @@ const getData = async (town: string): Promise<WeatherData> => {
     throw new Error("There is something wrong");
   }
 };
-const fetchMyApiForTownArray = async (): Promise<string[]> => {
-  const url = "http://localhost:3000/api/towns";
+export const fetchMyApiForTownArray = async (): Promise<string[]> => {
+  const url = "/api/towns";
   const options = {
     method: "GET",
     headers: {
@@ -32,7 +32,7 @@ const fetchMyApiForTownArray = async (): Promise<string[]> => {
     const res = await fetch(url, options).then((res) => res.json());
     return res;
   } catch {
-    throw new Error("There is something wrong");
+    throw new Error("There is something wrong with the request to your api");
   }
 };
 
