@@ -7,11 +7,13 @@ const TownList = ({
   setHasBeenCalled,
   searchInput,
   towns,
+  removeListOfCities,
 }: {
   data: [];
   setHasBeenCalled: React.Dispatch<React.SetStateAction<boolean>>;
   searchInput: string;
   towns: string[];
+  removeListOfCities: () => void;
 }) => {
   return (
     <div id="town-list-container">
@@ -24,9 +26,11 @@ const TownList = ({
                 ""
               ) : (
                 <AddButton
+                  data={data}
                   towns={towns}
                   setHasBeenCalled={setHasBeenCalled}
                   searchInput={searchInput}
+                  removeListOfCities={removeListOfCities}
                 />
               )}
             </li>
