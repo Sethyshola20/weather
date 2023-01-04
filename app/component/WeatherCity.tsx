@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { WeatherData } from "./types/WeatherData";
+import { WeatherData } from "../types/WeatherData";
 import { Suspense } from "react";
-import Loading from "./loading";
+import Loading from "../loading";
 
 const WeatherCity: React.FC<WeatherData> = (props) => {
   const inKmh = Math.round(props.current.wind_mph * 1.60934);

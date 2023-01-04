@@ -1,9 +1,10 @@
 import { WeatherData } from "./types/WeatherData";
-import WeatherCity from "./WeatherCity";
+import WeatherCity from "./component/WeatherCity";
 import "../styles/styles.css";
 import SearchBar from "./component/SearchBar";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { Link } from "react-router-dom";
 
 const getData = async (town: string): Promise<WeatherData> => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
@@ -21,7 +22,7 @@ const getData = async (town: string): Promise<WeatherData> => {
   }
 };
 export const fetchMyApiForTownArray = async (): Promise<string[]> => {
-  const url = "/api/towns";
+  const url = process.env.NEXT_API!;
   const options = {
     method: "GET",
     headers: {
@@ -37,6 +38,7 @@ export const fetchMyApiForTownArray = async (): Promise<string[]> => {
 };
 
 const Home = async () => {
+  const apiKeyc = process.env.API_KEYC!;
   const towns = await fetchMyApiForTownArray();
   const createData = async (town: string) => {
     const data = await getData(town);
@@ -47,11 +49,11 @@ const Home = async () => {
   );
   return (
     <main>
-      {/*<div className="search">
+      <div className="search">
         <Suspense fallback={<Loading />}>
-          <SearchBar towns={towns} />
+          <SearchBar towns={towns} apiKeyc={apiKeyc} />
         </Suspense>
-      </div>*/}
+      </div>
       <ul className="city-list">
         {citiesData.map((item) => (
           <li className="city">

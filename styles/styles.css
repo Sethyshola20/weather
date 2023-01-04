@@ -112,7 +112,7 @@ h3{
     color: #f5f5f7;
     z-index: 2;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     padding-right: .75em;
   }
@@ -138,14 +138,14 @@ h3{
     color: white;
   }
   .searchbar::-webkit-search-cancel-button{
-    -webkit-appearance: none;
-    height: 15px;
-    width: 15px;
-    background-color: #f5f5f7;
+    height: 12px;
+    width: 12px;
     border-radius: 900px;
-    content: 'x';
-    color: #111111;
     cursor: pointer;
+  }
+  .searchbar::-webkit-search-cancel-button:before{
+    color: #f5f5f7;
+    content: 'x';
   }
   .searchbar:focus{
     outline:none;
@@ -164,16 +164,21 @@ h3{
     background-color: #111111;
   }
   .add-to-citylist{
+    appearance: none;
     margin-left: 5px;
+    background-color: #313131;
+    padding: .25em .75em;
+    border-radius: 5px;
     font-size: 16px;
     color: #f5f5f7;
-    background-color: unset;
+    transition: all .2s;
     border-color: unset;
     border: none;
     cursor: pointer;
   }
   .add-to-citylist:hover{
     color: white; 
+    background-color: #5D5D5D;
   }
   .cancel{
     background-color: unset;

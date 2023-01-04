@@ -5,9 +5,11 @@ const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<strin
     if (req.method === 'POST') {
         if (typeof req.body !== 'string') {
             res.status(400).json({ error: 'Request body must be a string' });
+        } else {
+            towns.push(req.body)
+            res.status(200).json({ message: "well done", data: towns })
         }
-        const requestString = req.body;
-        towns.push(requestString)
+
 
     } else if (req.method === 'GET') {
         res.status(200).json(towns)
