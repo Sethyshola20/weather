@@ -4,7 +4,6 @@ import "../styles/styles.css";
 import SearchBar from "./component/SearchBar";
 import { Suspense } from "react";
 import Loading from "./loading";
-import { Link } from "react-router-dom";
 
 const getData = async (town: string): Promise<WeatherData> => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
@@ -22,7 +21,7 @@ const getData = async (town: string): Promise<WeatherData> => {
     throw new Error("There is something wrong");
   }
 };
-export const fetchMyApiForTownArray = async (): Promise<string[]> => {
+const fetchMyApiForTownArray = async (): Promise<string[]> => {
   const url = process.env.NEXT_API!;
   const options = {
     method: "GET",
