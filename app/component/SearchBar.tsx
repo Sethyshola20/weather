@@ -5,6 +5,7 @@ import useSWR from "swr";
 import { useState } from "react";
 import Loading from "../loading";
 import TownList from "./TownList";
+import { Citysearch } from "../types/Citysearch";
 
 const SearchBar = ({
   towns,
@@ -16,20 +17,19 @@ const SearchBar = ({
   const [searchInput, setSearchInput] = useState("");
   const [hasBeenCalled, setHasBeenCalled] = useState(false);
 
-  const fetcher = async (key: string) => {
+  const fetcher = async (key: string): Promise<Citysearch[]> => {
     const url = `https://api.api-ninjas.com/v1/city?name=${key}`;
     const options = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Api-Key": "tQoV7N8hnQB26DggA50YUCtUvBakKtQobG1HioYV",
+        "X-Api-Key": apiKeyc,
       },
     };
-
     try {
       const res = await fetch(url, options);
       const data = await res.json();
-      return data;
+      return data as Citysearch[];
     } catch {
       throw new Error("Could not fetch");
     }
@@ -80,7 +80,7 @@ const SearchBar = ({
       </Suspense>
       <Suspense fallback={<Loading />}>
         <TownList
-          data={data}
+          data={data!}
           searchInput={searchInput}
           setHasBeenCalled={setHasBeenCalled}
           towns={towns}

@@ -15,8 +15,9 @@ const getData = async (town: string): Promise<WeatherData> => {
     },
   };
   try {
-    const res = await fetch(url, options).then((res) => res.json());
-    return res;
+    const res = await fetch(url, options);
+    const data = await res.json();
+    return data as WeatherData;
   } catch {
     throw new Error("There is something wrong");
   }
@@ -30,8 +31,9 @@ export const fetchMyApiForTownArray = async (): Promise<string[]> => {
     },
   };
   try {
-    const res = await fetch(url, options).then((res) => res.json());
-    return res;
+    const res = await fetch(url, options);
+    const data = await res.json();
+    return data as string[];
   } catch {
     throw new Error("There is something wrong with the request to your api");
   }

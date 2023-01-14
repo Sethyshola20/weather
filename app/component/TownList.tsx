@@ -9,7 +9,7 @@ const TownList = ({
   towns,
   removeListOfCities,
 }: {
-  data: [];
+  data: Citysearch[];
   setHasBeenCalled: React.Dispatch<React.SetStateAction<boolean>>;
   searchInput: string;
   towns: string[];

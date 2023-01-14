@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import { Citysearch } from "../types/Citysearch";
 interface Props {
-  data: any;
+  data: Citysearch[];
   searchInput: string;
   setHasBeenCalled: React.Dispatch<React.SetStateAction<boolean>>;
   towns: string[];
