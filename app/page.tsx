@@ -22,7 +22,7 @@ const getData = async (town: string): Promise<WeatherData> => {
   }
 };
 const fetchMyApiForTownArray = async (): Promise<string[]> => {
-  const url = process.env.NEXT_API!;
+  const url = "/api/towns";
   const options = {
     method: "GET",
     headers: {

@@ -17,7 +17,7 @@ const AddButton: React.FC<Props> = ({
   removeListOfCities,
 }) => {
   const addCityToTownsArray = async (towns: string[]) => {
-    const url = "http://localhost:3000/api/towns"!;
+    const url = "/api/towns"!;
     const options = {
       method: "POST",
       headers: {
