@@ -22,7 +22,7 @@ const getData = async (town: string): Promise<WeatherData> => {
   }
 };
 const fetchMyApiForTownArray = async (): Promise<string[]> => {
-  const url = "/api/towns";
+  const url = "weather-time-iutx54kms-sethyshola20.vercel.app/api/towns";
   const options = {
     method: "GET",
     headers: {
