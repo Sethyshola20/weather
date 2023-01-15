@@ -17,7 +17,7 @@ const AddButton: React.FC<Props> = ({
   removeListOfCities,
 }) => {
   const addCityToTownsArray = async (towns: string[]) => {
-    const url = "weather-time-iutx54kms-sethyshola20.vercel.app/api/towns"!;
+    const url = process.env.API_URL!;
     const options = {
       method: "POST",
       headers: {
