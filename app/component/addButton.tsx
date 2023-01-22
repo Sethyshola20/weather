@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Citysearch } from "../types/Citysearch";
-import { towns } from "../../pages/api/towns";
 interface Props {
   data: Citysearch[];
   searchInput: string;
@@ -17,9 +16,8 @@ const AddButton: React.FC<Props> = ({
   towns,
   removeListOfCities,
 }) => {
-  {
-    /*const addCityToTownsArray = async (towns: string[]) => {
-    const url = process.env.NEXT_PUBLIC_API_URL!;
+  const addCityToTownsArray = async () => {
+    const url = "https://weather-time-two.vercel.app/api/towns";
     const options = {
       method: "POST",
       headers: {
@@ -32,14 +30,10 @@ const AddButton: React.FC<Props> = ({
     const data = await res.json();
     removeListOfCities();
     setHasBeenCalled(false);
-  };*/
-  }
+  };
   return (
     <>
-      <button
-        className="add-to-citylist"
-        onClick={() => towns.push(searchInput)}
-      >
+      <button className="add-to-citylist" onClick={() => addCityToTownsArray()}>
         Add
       </button>
     </>
