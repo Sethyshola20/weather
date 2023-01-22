@@ -17,7 +17,7 @@ const AddButton: React.FC<Props> = ({
   removeListOfCities,
 }) => {
   const addCityToTownsArray = async (towns: string[]) => {
-    const url = process.env.API_URL!;
+    const url = process.env.NEXT_PUBLIC_API_URL!;
     const options = {
       method: "POST",
       headers: {
@@ -28,9 +28,7 @@ const AddButton: React.FC<Props> = ({
 
     const res = await fetch(url, options);
     const data = await res.json();
-    console.log(data);
     removeListOfCities();
-    towns.push(searchInput);
     setHasBeenCalled(false);
   };
   return (
