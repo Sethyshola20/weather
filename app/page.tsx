@@ -4,6 +4,7 @@ import "../styles/styles.css";
 import SearchBar from "./component/SearchBar";
 import { Suspense } from "react";
 import Loading from "./loading";
+import { towns } from "../pages/api/towns";
 
 const getData = async (town: string): Promise<WeatherData> => {
   const url = `https://api.weatherapi.com/v1/current.json?key=${process.env.API_KEYW}&q=${town}&aqi=no`;
@@ -21,7 +22,8 @@ const getData = async (town: string): Promise<WeatherData> => {
     throw new Error("There is something wrong");
   }
 };
-const fetchMyApiForTownArray = async (): Promise<string[]> => {
+{
+  /*const fetchMyApiForTownArray = async (): Promise<string[]> => {
   const url = process.env.NEXT_PUBLIC_API_URL!;
   const options = {
     method: "GET",
@@ -36,12 +38,13 @@ const fetchMyApiForTownArray = async (): Promise<string[]> => {
   } catch {
     throw new Error("There is something wrong with the request to your api");
   }
-};
+};*/
+}
 
 const Home = async () => {
   const apiKeyc = process.env.API_KEYC!;
 
-  const towns = await fetchMyApiForTownArray();
+  //const towns = await fetchMyApiForTownArray();
   const createData = async (town: string) => {
     const data = await getData(town);
     return data;

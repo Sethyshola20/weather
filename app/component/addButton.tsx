@@ -2,6 +2,7 @@
 
 import React from "react";
 import { Citysearch } from "../types/Citysearch";
+import { towns } from "../../pages/api/towns";
 interface Props {
   data: Citysearch[];
   searchInput: string;
@@ -16,7 +17,8 @@ const AddButton: React.FC<Props> = ({
   towns,
   removeListOfCities,
 }) => {
-  const addCityToTownsArray = async (towns: string[]) => {
+  {
+    /*const addCityToTownsArray = async (towns: string[]) => {
     const url = process.env.NEXT_PUBLIC_API_URL!;
     const options = {
       method: "POST",
@@ -30,12 +32,13 @@ const AddButton: React.FC<Props> = ({
     const data = await res.json();
     removeListOfCities();
     setHasBeenCalled(false);
-  };
+  };*/
+  }
   return (
     <>
       <button
         className="add-to-citylist"
-        onClick={() => addCityToTownsArray(towns)}
+        onClick={() => towns.push(searchInput)}
       >
         Add
       </button>
