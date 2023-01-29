@@ -39,6 +39,7 @@ const SearchBar = ({
   const displayListOfCities = () => {
     const townList = document.getElementById("town-list-container");
     const header = document.getElementById("recherche");
+    townList!.style.display = "block";
     townList?.classList.add("town-list-container");
     header?.classList.add("recherche");
     setHasBeenCalled(true);
@@ -47,7 +48,9 @@ const SearchBar = ({
     const townList = document.getElementById("town-list-container");
     const header = document.getElementById("recherche");
     townList?.classList.remove("town-list-container");
+    townList!.style.display = "none";
     header?.classList.remove("recherche");
+    setSearchInput("");
     setHasBeenCalled(false);
   };
   return (

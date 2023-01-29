@@ -9,12 +9,12 @@ import { fetchMyApiForTownArray, getData } from "../util/fetchDataOnPageLoad";
 const Home = async () => {
   const apiKeyc = process.env.API_KEYC!;
   const towns = await fetchMyApiForTownArray();
-  const createData = async (town: string) => {
+  const createCityList = async (town: string) => {
     const data = await getData(town);
     return data;
   };
   const citiesData: WeatherData[] = await Promise.all(
-    towns.map((item) => createData(item))
+    towns.map((town) => createCityList(town))
   );
   return (
     <main>
@@ -24,13 +24,13 @@ const Home = async () => {
         </Suspense>
       </div>
       <ul className="city-list">
-        {citiesData.map((item) => (
-          <li className="city">
+        {citiesData.map((city) => (
+          <li className="city" key={city.location.name}>
             <Suspense fallback={<Loading />}>
               <WeatherCity
-                key={item.location.name}
-                location={item.location}
-                current={item.current}
+                key={city.location.name}
+                location={city.location}
+                current={city.current}
               />
             </Suspense>
           </li>

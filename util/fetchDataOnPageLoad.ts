@@ -17,6 +17,7 @@ export const getData = async (town: string): Promise<WeatherData> => {
     }
 };
 export const fetchMyApiForTownArray = async (): Promise<string[]> => {
+    //const url = "http://localhost:3000/api/towns";
     const url = "https://weather-time-two.vercel.app/api/towns";
     const options = {
         method: "GET",

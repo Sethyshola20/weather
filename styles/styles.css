@@ -137,6 +137,9 @@ h3{
     border-style: unset;
     color: white;
   }
+  .searchbar:-webkit-autofill{
+    border: 1px solid rgb(255, 0, 0)
+  }
   .searchbar::-webkit-search-cancel-button{
     height: 12px;
     width: 12px;
