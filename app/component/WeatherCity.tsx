@@ -4,6 +4,7 @@ import React from "react";
 import { WeatherData } from "../types/WeatherData";
 import { Suspense } from "react";
 import Loading from "../loading";
+import DeleteButton from "./deleteButton";
 
 const WeatherCity: React.FC<WeatherData> = (props) => {
   const inKmh = Math.round(props.current.wind_mph * 1.60934);
@@ -44,6 +45,7 @@ const WeatherCity: React.FC<WeatherData> = (props) => {
               <p>{props.current.precip_mm} mm</p>
             </div>
           </div>
+          <DeleteButton city={props.location.name} />
         </section>
       </Suspense>
     </>

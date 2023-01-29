@@ -26,8 +26,7 @@ const AddButton: React.FC<Props> = ({
       body: JSON.stringify(searchInput),
     };
 
-    const res = await fetch(url, options);
-    const data = await res.json();
+    await fetch(url, options);
     removeListOfCities();
     setHasBeenCalled(false);
   };

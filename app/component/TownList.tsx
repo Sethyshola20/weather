@@ -5,13 +5,11 @@ import AddButton from "./addButton";
 const TownList = ({
   data,
   setHasBeenCalled,
-  searchInput,
   towns,
   removeListOfCities,
 }: {
   data: Citysearch[];
   setHasBeenCalled: React.Dispatch<React.SetStateAction<boolean>>;
-  searchInput: string;
   towns: string[];
   removeListOfCities: () => void;
 }) => {
@@ -29,7 +27,7 @@ const TownList = ({
                   data={data}
                   towns={towns}
                   setHasBeenCalled={setHasBeenCalled}
-                  searchInput={searchInput}
+                  searchInput={item.name}
                   removeListOfCities={removeListOfCities}
                 />
               )}

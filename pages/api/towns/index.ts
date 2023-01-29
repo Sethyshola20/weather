@@ -13,7 +13,18 @@ const handler = (req: NextApiRequest, res: NextApiResponse) => {
     } else if (req.method === 'GET') {
         res.status(200).json(towns);
     }
+    else if (req.method === 'DELETE') {
+        const town = req.body;
+        const index = towns.indexOf(town);
+        if (index === -1) {
+            res.status(404).json({ error: 'Town not found' });
+        } else {
+            towns.splice(index, 1);
+            res.status(200).json({ message: 'Town deleted', towns });
+        }
+    }
 };
+
 
 export default handler;
 

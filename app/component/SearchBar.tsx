@@ -81,7 +81,6 @@ const SearchBar = ({
       <Suspense fallback={<Loading />}>
         <TownList
           data={data!}
-          searchInput={searchInput}
           setHasBeenCalled={setHasBeenCalled}
           towns={towns}
           removeListOfCities={removeListOfCities}
