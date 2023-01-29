@@ -19,7 +19,7 @@ const DeleteButton = ({ city }: { city: string }) => {
   };
   return (
     <button onClick={deleteCity} className="delete">
-      <img src="/weather/assets/bin.png" alt="delete this city" />
+      Delete this city
     </button>
   );
 };
