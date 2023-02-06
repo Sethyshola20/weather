@@ -113,7 +113,7 @@ h3{
     z-index: 2;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-right: .75em;
   }
   #recherche{
@@ -168,7 +168,7 @@ h3{
   }
   .add-to-citylist{
     appearance: none;
-    margin-left: 5px;
+    margin-left: 30vw;
     background-color: #313131;
     padding: .25em .75em;
     border-radius: 5px;
