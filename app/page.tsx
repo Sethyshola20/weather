@@ -28,6 +28,9 @@ const fetchMyApiForTownArray = async (): Promise<string[]> => {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
+      Pragma: "no-cache",
+      Expires: "-1",
     },
   };
   try {

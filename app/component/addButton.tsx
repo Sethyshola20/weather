@@ -24,6 +24,9 @@ const AddButton: React.FC<Props> = ({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "-1",
       },
       body: JSON.stringify(searchInput),
     };

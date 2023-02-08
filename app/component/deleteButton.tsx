@@ -11,6 +11,9 @@ const DeleteButton = ({ city }: { city: string }) => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+        Expires: "-1",
       },
       body: JSON.stringify(city),
     };
