@@ -14,8 +14,12 @@ const DeleteButton = ({ city }: { city: string }) => {
       },
       body: JSON.stringify(city),
     };
-    await fetch(url, options);
-    router.refresh();
+    try {
+      await fetch(url, options);
+      router.refresh();
+    } catch {
+      throw new Error();
+    }
   };
   return (
     <button onClick={deleteCity} className="delete">
