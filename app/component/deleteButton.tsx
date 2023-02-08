@@ -17,6 +17,7 @@ const DeleteButton = ({ city }: { city: string }) => {
     try {
       await fetch(url, options);
       router.refresh();
+      console.log("refresh");
     } catch {
       throw new Error();
     }

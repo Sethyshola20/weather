@@ -31,6 +31,7 @@ const AddButton: React.FC<Props> = ({
     try {
       await fetch(url, options);
       router.refresh();
+      console.log("refresh");
       removeListOfCities();
       setHasBeenCalled(false);
     } catch {
