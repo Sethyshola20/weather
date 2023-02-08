@@ -25,7 +25,6 @@ const TownList = ({
               ) : (
                 <AddButton
                   data={data}
-                  towns={towns}
                   setHasBeenCalled={setHasBeenCalled}
                   searchInput={item.name}
                   removeListOfCities={removeListOfCities}

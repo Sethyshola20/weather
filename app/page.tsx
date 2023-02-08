@@ -58,15 +58,11 @@ const Home = async () => {
       </div>
       <ul className="city-list">
         {citiesData.map((city) => (
-          <li className="city" key={city.location.name}>
-            <Suspense fallback={<Loading />}>
-              <WeatherCity
-                key={city.location.name}
-                location={city.location}
-                current={city.current}
-              />
-            </Suspense>
-          </li>
+          <Suspense fallback={<Loading />}>
+            <li className="city" key={city.location.name}>
+              <WeatherCity location={city.location} current={city.current} />
+            </li>
+          </Suspense>
         ))}
         <footer className="list-foot"></footer>
       </ul>

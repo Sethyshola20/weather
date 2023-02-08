@@ -8,14 +8,12 @@ interface Props {
   data: Citysearch[];
   searchInput: string;
   setHasBeenCalled: React.Dispatch<React.SetStateAction<boolean>>;
-  towns: string[];
   removeListOfCities: () => void;
 }
 
 const AddButton: React.FC<Props> = ({
   searchInput,
   setHasBeenCalled,
-  towns,
   removeListOfCities,
 }) => {
   const router = useRouter();
@@ -30,10 +28,14 @@ const AddButton: React.FC<Props> = ({
       body: JSON.stringify(searchInput),
     };
 
-    await fetch(url, options);
-    router.refresh();
-    removeListOfCities();
-    setHasBeenCalled(false);
+    try {
+      await fetch(url, options);
+      router.refresh();
+      removeListOfCities();
+      setHasBeenCalled(false);
+    } catch {
+      throw new Error();
+    }
   };
   return (
     <>
