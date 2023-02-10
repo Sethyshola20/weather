@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Citysearch } from "../types/Citysearch";
-import { useRouter } from "next/navigation";
 
 interface Props {
   data: Citysearch[];
@@ -16,7 +15,6 @@ const AddButton: React.FC<Props> = ({
   setHasBeenCalled,
   removeListOfCities,
 }) => {
-  const router = useRouter();
   const addCityToTownsArray = async () => {
     //const url = "http://localhost:3000/api/towns";
     const url = "https://weather-time-two.vercel.app/api/towns";
@@ -24,17 +22,13 @@ const AddButton: React.FC<Props> = ({
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        Pragma: "no-cache",
-        Expires: "-1",
       },
       body: JSON.stringify(searchInput),
     };
 
     try {
       await fetch(url, options);
-      router.refresh();
-      console.log("refresh");
+      window.location.reload();
       removeListOfCities();
       setHasBeenCalled(false);
     } catch {

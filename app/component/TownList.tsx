@@ -17,7 +17,7 @@ const TownList = ({
     <div id="town-list-container">
       <ul className="town-list">
         {data &&
-          data.map((item: Citysearch) => (
+          data?.map((item: Citysearch) => (
             <li className="town-list-item" key={item.population}>
               {item.name}
               {towns.includes(item.name) ? (

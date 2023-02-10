@@ -3,5 +3,5 @@
 import React from "react";
 
 export default function error() {
-  return <div>ther is an error</div>;
+  return <div>there is an error</div>;
 }

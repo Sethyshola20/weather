@@ -6,14 +6,9 @@ import { useState } from "react";
 import Loading from "../loading";
 import TownList from "./TownList";
 import { Citysearch } from "../types/Citysearch";
+import { towns } from "../../pages/api/towns";
 
-const SearchBar = ({
-  towns,
-  apiKeyc,
-}: {
-  towns: string[];
-  apiKeyc: string;
-}) => {
+const SearchBar = ({ apiKeyc }: { apiKeyc: string }) => {
   const [searchInput, setSearchInput] = useState("");
   const [hasBeenCalled, setHasBeenCalled] = useState(false);
 
@@ -23,7 +18,7 @@ const SearchBar = ({
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "X-Api-Key": apiKeyc,
+        "X-Api-Key": apiKeyc!,
       },
     };
     try {
