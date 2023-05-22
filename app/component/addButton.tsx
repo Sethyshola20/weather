@@ -32,7 +32,7 @@ const AddButton: React.FC<Props> = ({
       removeListOfCities();
       setHasBeenCalled(false);
     } catch {
-      throw new Error();
+      throw new Error("Something went wrong");
     }
   };
   return (

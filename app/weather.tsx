@@ -42,6 +42,7 @@ const Weather = ({
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
     const fetchData = async () => {
       const towns = await fetchMyApiForTownArray();
       const citiesDataPromise = towns.map(async (city: string) => {
@@ -55,6 +56,8 @@ const Weather = ({
       fetchData();
     } catch (err) {
       console.error(err);
+    } finally {
+      abortController.abort();
     }
   }, []);
 
