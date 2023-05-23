@@ -12,15 +12,9 @@ export default async function Home() {
   async function getData(town: string): Promise<WeatherData> {
     const url = `https://api.weatherapi.com/v1/current.json?key=${process.env
       .API_KEYW!}&q=${town}&aqi=no`;
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        cache: "no-store",
-      },
-    };
+
     try {
-      const res = await fetch(url, options);
+      const res = await fetch(url, { cache: "no-store" });
       const data: WeatherData = await res.json();
       return data;
     } catch {
