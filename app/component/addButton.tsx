@@ -31,8 +31,8 @@ const AddButton: React.FC<Props> = ({
       window.location.reload();
       removeListOfCities();
       setHasBeenCalled(false);
-    } catch {
-      throw new Error("Something went wrong");
+    } catch (error: any) {
+      throw new Error(error);
     }
   };
   return (

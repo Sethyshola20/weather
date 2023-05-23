@@ -14,8 +14,8 @@ const DeleteButton = ({ city }: { city: string }) => {
     try {
       await fetch(url, options);
       window.location.reload();
-    } catch {
-      throw new Error();
+    } catch (error: any) {
+      throw new Error(error);
     }
   };
   return (
