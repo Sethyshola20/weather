@@ -20,16 +20,12 @@ const TownList = ({
           data?.map((item: Citysearch) => (
             <li className="town-list-item" key={item.population}>
               {item.name}
-              {towns.includes(item.name) ? (
-                ""
-              ) : (
-                <AddButton
-                  data={data}
-                  setHasBeenCalled={setHasBeenCalled}
-                  searchInput={item.name}
-                  removeListOfCities={removeListOfCities}
-                />
-              )}
+              <AddButton
+                data={data}
+                setHasBeenCalled={setHasBeenCalled}
+                searchInput={item.name}
+                removeListOfCities={removeListOfCities}
+              />
             </li>
           ))}
       </ul>
