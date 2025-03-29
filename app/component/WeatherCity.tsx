@@ -1,5 +1,3 @@
-"use client";
-
 import { WeatherData } from "../types/WeatherData";
 import DeleteButton from "./deleteButton";
 

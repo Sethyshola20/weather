@@ -3,7 +3,6 @@
 import React, { Suspense } from "react";
 import useSWR from "swr";
 import { useState } from "react";
-import Loading from "../loading";
 import TownList from "./TownList";
 import { Citysearch } from "../types/Citysearch";
 import { towns } from "../../pages/api/towns";
@@ -50,7 +49,7 @@ const SearchBar = ({ apiKeyc }: { apiKeyc: string }) => {
   };
   return (
     <>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<>...</>}>
         <header id="recherche">
           <form className="search-wrapper">
             <input
@@ -76,7 +75,7 @@ const SearchBar = ({ apiKeyc }: { apiKeyc: string }) => {
           </form>
         </header>
       </Suspense>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<>...</>}>
         <TownList
           data={data!}
           setHasBeenCalled={setHasBeenCalled}
